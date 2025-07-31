@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
 
     [SerializeField] private float walkingSpeed = 3f;
+    [SerializeField] private float accelerationSpeed = 0.2f;
     [SerializeField] private float jumpForce = 2.5f;
     [SerializeField] private float airborneMoveSpeedDebuff = 0.7f; //Decreases the walking speed in the air by percentage
 
@@ -24,6 +25,18 @@ public class PlayerMovement : MonoBehaviour
     private float bufferTimeCounter = 0f;
 
     private bool isFacingRight = true;
+
+    public float GetGravityScale()
+    {
+        if (rb.linearVelocityY < 0)
+        {
+           return fallingGravity;
+        }
+        else
+        {
+            return defaultGravity;
+        }
+    }
 
     public enum States
     {
@@ -49,7 +62,12 @@ public class PlayerMovement : MonoBehaviour
 
         DetermineState();
 
-        GravityConfig();
+        //GravityConfig();
+    }
+    
+    private void FixedUpdate()
+    {
+        MovementConfig();
     }
 
     private void GravityConfig()
@@ -63,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
             rb.gravityScale = defaultGravity;
         }
 
-        rb.linearVelocityY = Mathf.Clamp(rb.linearVelocityY, -rb.gravityScale, float.MaxValue);
+        //rb.linearVelocityY = Mathf.Clamp(rb.linearVelocityY, -rb.gravityScale, float.MaxValue);
     }
 
     #region State Machine
@@ -126,11 +144,6 @@ public class PlayerMovement : MonoBehaviour
         hasState = true;
         currentState = States.Airborne;
         //Start animation
-    }
-
-    private void FixedUpdate()
-    {
-        MovementConfig();
     }
 
     private void MovementConfig()
@@ -275,5 +288,14 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.linearVelocityY = 0f;
         rb.AddForceY(jumpForce, ForceMode2D.Impulse);
+
+        //// Reset local vertical (relative-up) component of velocity
+        //Vector2 localVel = transform.InverseTransformDirection(rb.linearVelocity);
+        //localVel.y = 0f;
+        //rb.linearVelocity = transform.TransformDirection(localVel);
+
+        //// Apply impulse in player's local up direction
+        //Vector2 jumpDir = (Vector2)transform.up * jumpForce;
+        //rb.AddForce(jumpDir, ForceMode2D.Impulse);
     }
 }

@@ -1,6 +1,4 @@
-using System.Runtime.InteropServices;
-using UnityEditor.ShaderGraph;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GroundDirection : MonoBehaviour
 {
@@ -8,30 +6,31 @@ public class GroundDirection : MonoBehaviour
     RaycastHit2D[] search = new RaycastHit2D[4];
     float[] rayDistance = { 0, 0, 0, 0 };
     RaycastHit2D hit;
-    [SerializeField] Rigidbody2D rb;
+    Rigidbody2D rb;
 
     Vector2 gravityDirection;
     Vector2 playerDown;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    PlayerMovement playerScript;
+
     void Start()
     {
+        rb = transform.root.GetComponent<Rigidbody2D>();
+
+        playerScript = transform.root.GetComponent<PlayerMovement>();
+
         //every object will have its own rotation so this one is useless
         Physics2D.gravity = new Vector2(0, 0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
     private void FixedUpdate()
     {
         ApplyGravity();
     }
     private void ApplyGravity()
     {
-
         // oppesite of up
-        playerDown = -transform.parent.up;
+        playerDown = -transform.root.up;
 
         //cast ray to the ground
         hit = Physics2D.Raycast(transform.position, playerDown, 3, GroundLayer);
@@ -39,7 +38,6 @@ public class GroundDirection : MonoBehaviour
 
         if (hit.collider != null)
         {
-          
             // Set gravity to pull the player towards the hit normal.
             gravityDirection = -hit.normal;
 
@@ -77,12 +75,9 @@ public class GroundDirection : MonoBehaviour
             //apply new gravity and rotation to gravityDirection
             gravityDirection = -search[smallest].normal;
             transform.parent.up = search[smallest].normal;
-           
-
-
-
         }
+
         // apply the final gravity direction.
-        rb.AddForce(gravityDirection * 9.8f * rb.gravityScale * rb.mass, ForceMode2D.Force);
+        rb.AddForce(gravityDirection * 9.8f * playerScript.GetGravityScale() * rb.mass, ForceMode2D.Force);
     }
 }
