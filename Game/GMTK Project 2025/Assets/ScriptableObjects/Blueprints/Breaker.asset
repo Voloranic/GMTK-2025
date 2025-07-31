@@ -10,7 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3963fa8d9e28a1c479a840ce8bfc7d31, type: 3}
-  m_Name: TestBlueprint 1
+  m_Name: Breaker
   m_EditorClassIdentifier: 
-  id: 1
-  _name: Test Blueprint
+  id: 0
+  _name: Breaker
+  useDistance: 5
+  usableLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  sprite: {fileID: 3063841963128474276, guid: 43037cb56b6f20040ab13acab2766140, type: 3}
+  useCooldown: 1

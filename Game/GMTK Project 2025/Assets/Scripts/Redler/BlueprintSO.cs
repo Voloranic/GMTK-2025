@@ -6,6 +6,15 @@ public class BlueprintSO : ScriptableObject
     [SerializeField] private int id = 0;
     [SerializeField] private string _name = "Default Name";
 
+    [SerializeField] private float useDistance = 5f;
+    [SerializeField] private LayerMask usableLayers;
+
+    [SerializeField] private Sprite sprite;
+
+    [SerializeField] private Vector2 spriteSize = Vector2.one;
+
+    [SerializeField] private float useCooldown = 1f;
+
     public int GetId()
     {
         return id;
@@ -14,5 +23,30 @@ public class BlueprintSO : ScriptableObject
     public string GetName()
     {
         return _name;
+    }
+
+    public float GetUseDistance()
+    {
+        return useDistance;
+    }
+
+    public LayerMask GetUsableLayers()
+    {
+        return usableLayers;
+    }
+
+    public Sprite GetSprite()
+    {
+        return sprite;
+    }
+
+    public float GetUseCooldown()
+    {
+        return useCooldown;
+    }
+
+    public Vector2 GetSpriteSize()
+    {
+        return spriteSize;
     }
 }

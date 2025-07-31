@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3963fa8d9e28a1c479a840ce8bfc7d31, type: 3}
   m_Name: TestBlueprint
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   _name: Test Blueprint
+  useDistance: 5
+  usableLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  sprite: {fileID: 0}
+  useCooldown: 1
