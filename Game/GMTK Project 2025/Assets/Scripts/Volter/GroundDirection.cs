@@ -8,20 +8,15 @@ public class GroundDirection : MonoBehaviour
     RaycastHit2D[] search = new RaycastHit2D[4];
     float[] rayDistance = { 0, 0, 0, 0 };
     RaycastHit2D hit;
-    RaycastHit2D search1;
-    RaycastHit2D search2;
-    RaycastHit2D search3;
-    RaycastHit2D search4;
+    [SerializeField] Rigidbody2D rb;
 
     Vector2 gravityDirection;
     Vector2 playerDown;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        search[0] = search1;
-        search[1] = search2;
-        search[2] = search3;
-        search[3] = search4;
+        //every object will have its own rotation so this one is useless
+        Physics2D.gravity = new Vector2(0, 0);
     }
 
     // Update is called once per frame
@@ -88,6 +83,6 @@ public class GroundDirection : MonoBehaviour
 
         }
         // apply the final gravity direction.
-        Physics2D.gravity = gravityDirection * 9.8f;
+        rb.AddForce(gravityDirection * 9.8f * rb.gravityScale * rb.mass, ForceMode2D.Force);
     }
 }
