@@ -7,17 +7,17 @@ public class GroundDirection : MonoBehaviour
     float[] rayDistance = { 0, 0, 0, 0 };
     RaycastHit2D hit;
     Rigidbody2D rb;
+    [SerializeField] float mass;
 
     Vector2 gravityDirection;
     Vector2 playerDown;
+    private bool grounded;
 
-    PlayerMovement playerScript;
 
     void Start()
     {
         rb = transform.root.GetComponent<Rigidbody2D>();
 
-        playerScript = transform.root.GetComponent<PlayerMovement>();
 
         //every object will have its own rotation so this one is useless
         Physics2D.gravity = new Vector2(0, 0);
@@ -29,12 +29,13 @@ public class GroundDirection : MonoBehaviour
     }
     private void ApplyGravity()
     {
+        grounded = true;
         // oppesite of up
         playerDown = -transform.root.up;
 
         //cast ray to the ground
-        hit = Physics2D.Raycast(transform.position, playerDown, 3, GroundLayer);
-        Debug.DrawRay(transform.position, playerDown * 3, Color.red);
+        hit = Physics2D.Raycast(transform.position, playerDown, 0.8f, GroundLayer);
+        Debug.DrawRay(transform.position, playerDown * 0.8f, Color.red);
 
         if (hit.collider != null)
         {
@@ -46,6 +47,7 @@ public class GroundDirection : MonoBehaviour
         }
         else
         {
+            grounded = false;
             //if you fly and have no ground
             //shoot 4 rays to find the closest ground and get the distance of each from the ground
 
@@ -76,8 +78,12 @@ public class GroundDirection : MonoBehaviour
             gravityDirection = -search[smallest].normal;
             transform.parent.up = search[smallest].normal;
         }
-
+        
         // apply the final gravity direction.
-        rb.AddForce(gravityDirection * 9.8f * playerScript.GetGravityScale() * rb.mass, ForceMode2D.Force);
+        rb.AddForce(gravityDirection * 9.8f * mass, ForceMode2D.Force);
+    }
+    public bool IsGrounded()
+    {
+        return grounded;
     }
 }
