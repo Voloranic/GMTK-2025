@@ -31,18 +31,6 @@ public class Movement : MonoBehaviour
 
         rb.AddForce(speedForce, ForceMode2D.Force);
 
-        /*
-        switch (horizontalInput)
-        {
-            case -1:
-                rb.AddForce(-transform.right * speed, ForceMode2D.Force);
-                break;
-            case 1:
-                rb.AddForce(transform.right * speed,ForceMode2D.Force);
-                break;
-
-        }
-        */
         ClampSpeed();
         
     }

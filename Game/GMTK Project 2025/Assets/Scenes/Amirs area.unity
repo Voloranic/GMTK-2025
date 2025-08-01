@@ -292,7 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 210805398}
   - component: {fileID: 210805399}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Hat (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 494133832}
   - component: {fileID: 494133833}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,10 +500,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4948fb7935b4fd49970bf9242748814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GroundLayer:
+  mass: 15
+  gravitationalConstant: 9.81
+  groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  mass: 15
+  closeGroundCheckDistance: 0.8
 --- !u!1 &808371614
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 808371615}
   - component: {fileID: 808371616}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +602,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 929393847}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,7 +641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 944487974}
   - component: {fileID: 944487975}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Leg (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -726,7 +728,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1047066085}
   - component: {fileID: 1047066086}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1194,7 +1196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1317127424}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1316,10 +1318,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4948fb7935b4fd49970bf9242748814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GroundLayer:
-    serializedVersion: 2
-    m_Bits: 8
   mass: 0
+  gravitationalConstant: 9.81
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  closeGroundCheckDistance: 0.8
 --- !u!1 &1653782128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,7 +1685,7 @@ GameObject:
   - component: {fileID: 1893309310}
   - component: {fileID: 1893309312}
   - component: {fileID: 1893309311}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: BlueprintsCollection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1727,7 +1731,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913424fe69e999e4b95dc5cab331604e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item0Child: {fileID: 0}
   blueprintsCollection: []
+  blueprintsKeys: 
 --- !u!1 &1982717391
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,7 +2124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2024590683}
   - component: {fileID: 2024590684}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2205,7 +2211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2024614900}
   - component: {fileID: 2024614901}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2294,7 +2300,7 @@ GameObject:
   - component: {fileID: 2075032154}
   - component: {fileID: 2075032153}
   - component: {fileID: 2075032156}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2373,8 +2379,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2075032151}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.028470043, w: 0.9995947}
-  m_LocalPosition: {x: -3.78, y: -2.83, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.012323798, w: 0.99992406}
+  m_LocalPosition: {x: 2.626, y: -0.532, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2383,7 +2389,7 @@ Transform:
   - {fileID: 1893309310}
   - {fileID: 748980516}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.263}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.412}
 --- !u!114 &2075032156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2396,10 +2402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea9b076f96f71b4da118de3aba7bbb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 2075032154}
   speed: 40
   jumpForce: 100
-  GD: {fileID: 748980517}
 --- !u!1 &2111356038
 GameObject:
   m_ObjectHideFlags: 0
