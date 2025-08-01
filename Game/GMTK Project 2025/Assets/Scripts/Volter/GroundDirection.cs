@@ -43,7 +43,6 @@ public class GroundDirection : MonoBehaviour
 
     private void ApplyGravity()
     {
-        grounded = true;
         
         Vector2 playerDown = -transform.root.up;
 
@@ -55,6 +54,7 @@ public class GroundDirection : MonoBehaviour
 
         if (hit.collider != null)
         {
+            grounded = true;
             // Set gravity to pull the player towards the hit normal.
             gravityDirection = -hit.normal;
 
@@ -90,11 +90,13 @@ public class GroundDirection : MonoBehaviour
             int smallest = 0;
             for(int i = 0; i < search.Length; i++)
             {
-                if (rayDistance[smallest] > rayDistance[i])
+                if (rayDistance[smallest] > rayDistance[i] && rayDistance[i] != 0)
                 {
                     smallest = i;
                 }
             }
+            print(rayDistance[0] +"," + rayDistance[1] + "," + rayDistance[2] + "," + rayDistance[3]);
+            print(smallest);
 
             //apply new gravity and rotation to gravityDirection
             gravityDirection = -search[smallest].normal;
