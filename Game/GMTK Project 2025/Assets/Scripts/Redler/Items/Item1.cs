@@ -39,7 +39,9 @@ public class Item1 : MonoBehaviour
 
         if (useRay)
         {
-            Vector2 bridgeStartPosition = transform.root.position + (transform.root.right * 1);
+            int moveDirection = transform.root.GetComponent<Movement>().GetIsFacingRight() ? 1 : -1;
+
+            Vector2 bridgeStartPosition = transform.root.position + (transform.root.right * moveDirection);
 
             CreateGroundBetweenPoints(bridgeStartPosition, useRay.point, blueprintSO.GetCustomPrefab());
         }

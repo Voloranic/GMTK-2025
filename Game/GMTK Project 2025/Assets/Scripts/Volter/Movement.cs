@@ -38,6 +38,11 @@ public class Movement : MonoBehaviour
         Move();
     }
 
+    public bool GetIsFacingRight()
+    {
+        return isFacingRight;
+    }
+
     private void FlipSprite()
     {
         if (isFacingRight && horizontalInput < 0)
@@ -55,10 +60,9 @@ public class Movement : MonoBehaviour
     private void Move()
     {
         //float directionMultiplier = isFacingRight ? 1f : -1f;
-        Vector2 speedForce = horizontalInput * transform.right * speed;
+        Vector2 speedForce = horizontalInput * speed * transform.right / Time.deltaTime;
 
         rb.AddForce(speedForce, ForceMode2D.Force);
-        
     }
    
     private void Jump()

@@ -23,6 +23,11 @@ public class PlayerPickup : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            if (blueprintsInPickupDistance.Count <= 0)
+            {
+                return;
+            }
+
             int closestBlueprintIndex = GetClosestTransformIndex(blueprintTransformsInPickupDistance);
             Blueprint closestBlueprint = blueprintsInPickupDistance[closestBlueprintIndex];
             closestBlueprint.Pickup();
