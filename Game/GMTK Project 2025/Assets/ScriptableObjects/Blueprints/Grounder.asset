@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3963fa8d9e28a1c479a840ce8bfc7d31, type: 3}
-  m_Name: TestBlueprint
+  m_Name: Grounder
   m_EditorClassIdentifier: 
-  id: 1
-  _name: Test Blueprint
-  useDistance: 5
+  id: 2
+  _name: Grounder
+  useDistance: 7
   usableLayers:
     serializedVersion: 2
-    m_Bits: 0
-  sprite: {fileID: 0}
+    m_Bits: 8
+  sprite: {fileID: -4296760176796813495, guid: df3b406fe57302a4c9bef03fdb5947a5, type: 3}
+  spriteSize: {x: 0.1, y: 0.05}
   useCooldown: 1
+  customPrefab: {fileID: 492311075251546022, guid: 08832bd3fb1cef44892adddcb79e79ac, type: 3}

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundDirection : MonoBehaviour
@@ -8,9 +9,9 @@ public class GroundDirection : MonoBehaviour
     [SerializeField] float mass;
     [SerializeField] float gravitationalConstant = 9.81f;
 
-    [SerializeField] LayerMask groundLayer;
+    private float gravityScale;
 
-    [SerializeField] float closeGroundCheckDistance = 0.8f;
+    [SerializeField] LayerMask groundLayer;
 
     private bool grounded;
 
@@ -21,6 +22,18 @@ public class GroundDirection : MonoBehaviour
         Physics2D.gravity = new Vector2(0, 0);
 
         rb = transform.root.GetComponent<Rigidbody2D>();
+
+        SetDefaultGravityScale();
+    }
+
+    public void SetDefaultGravityScale()
+    {
+        gravityScale = gravitationalConstant;
+    }
+
+    public void ChangeGravityScale(float _gravityScale)
+    {
+        gravityScale = _gravityScale;
     }
 
     private void FixedUpdate()
@@ -53,9 +66,6 @@ public class GroundDirection : MonoBehaviour
             grounded = false;
             //if you fly and have no ground
             //shoot 4 rays to find the closest ground and get the distance of each from the ground
-
-
-
             
             RaycastHit2D[] search = new RaycastHit2D[4];
             float[] rayDistance = new float[4];
@@ -93,8 +103,9 @@ public class GroundDirection : MonoBehaviour
         }
 
         // apply the final gravity direction.
-        rb.AddForce(9.8f * mass * gravityDirection, ForceMode2D.Force);
+        rb.AddForce(gravityScale * mass * gravityDirection, ForceMode2D.Force);
     }
+
     public bool IsGrounded()
     {
         return grounded;

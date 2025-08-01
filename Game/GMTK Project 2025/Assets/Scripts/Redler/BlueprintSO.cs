@@ -15,6 +15,8 @@ public class BlueprintSO : ScriptableObject
 
     [SerializeField] private float useCooldown = 1f;
 
+    [SerializeField] private GameObject customPrefab;
+
     public int GetId()
     {
         return id;
@@ -48,5 +50,10 @@ public class BlueprintSO : ScriptableObject
     public Vector2 GetSpriteSize()
     {
         return spriteSize;
+    }
+
+    public GameObject GetCustomPrefab()
+    {
+        return customPrefab;
     }
 }

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Blueprint : MonoBehaviour
@@ -7,6 +8,14 @@ public class Blueprint : MonoBehaviour
     private PlayerPickup playerPickupScript;
 
     private BlueprintsCollection playerBlueprintsCollectionScript;
+
+    [SerializeField] private GameObject pickupBauble;
+
+    private void Start()
+    {
+        pickupBauble.GetComponentInChildren<TextMeshPro>().text += " " + blueprintSO.GetName();
+        pickupBauble.SetActive(false);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,6 +30,8 @@ public class Blueprint : MonoBehaviour
 
             playerPickupScript.AddBlueprintInPickupDistance(this);
 
+            pickupBauble.SetActive(true);
+
             ShowPickupUI();
         }
     }
@@ -30,6 +41,8 @@ public class Blueprint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerPickupScript.RemoveBlueprintInPickupDistance(this);
+
+            pickupBauble.SetActive(false);
 
             HidePickupUI();
         }

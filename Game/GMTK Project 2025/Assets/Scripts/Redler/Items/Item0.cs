@@ -6,14 +6,10 @@ public class Item0 : MonoBehaviour
 
     private SpriteRenderer sprite;
 
-    private Camera mainCamera;
-
     private Vector2 mouseWorldPos;
 
     public void Setup(BlueprintSO so)
     {
-        mainCamera = Camera.main;
-
         sprite = GetComponentInChildren<SpriteRenderer>();
         sprite.sprite = so.GetSprite();
         sprite.transform.localScale = so.GetSpriteSize();
@@ -39,12 +35,17 @@ public class Item0 : MonoBehaviour
     {
         //Do Animation
 
-        RaycastHit2D useRay = MouseToPlayerPosition.Instance.ShootRayToMouse(mouseWorldPos, blueprintSO.GetUseDistance(), blueprintSO.GetUsableLayers());
+        RaycastHit2D useRay = MouseToPlayerPosition.Instance.ShootRayToMouse(transform.root.position, mouseWorldPos, blueprintSO.GetUseDistance(), blueprintSO.GetUsableLayers());
 
         if (useRay)
         {
-            GameObject hittedObject = useRay.collider.transform.root.gameObject;
-            Destroy(hittedObject);
+            DestroyBreakable(useRay);
         }
+    }
+
+    private void DestroyBreakable(RaycastHit2D useRay)
+    {
+        GameObject hittedObject = useRay.collider.transform.root.gameObject;
+        Destroy(hittedObject);
     }
 }

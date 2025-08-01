@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MouseToPlayerPosition : MonoBehaviour
 {
-    public static MouseToPlayerPosition Instance = new MouseToPlayerPosition();
+    public static MouseToPlayerPosition Instance;
 
     private Camera mainCamera;
 
@@ -23,9 +23,8 @@ public class MouseToPlayerPosition : MonoBehaviour
         return new(worldMousePos.x, worldMousePos.y);
     }
 
-    public RaycastHit2D ShootRayToMouse(Vector2 targetPosition, float rayLength, LayerMask hittableLayers)
+    public RaycastHit2D ShootRayToMouse(Vector2 origin, Vector2 targetPosition, float rayLength, LayerMask hittableLayers)
     {
-        Vector2 origin = transform.position;
         Vector2 direction = (targetPosition - origin).normalized;
 
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, rayLength, hittableLayers);
