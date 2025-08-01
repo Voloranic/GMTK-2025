@@ -3,28 +3,35 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private float horizontalInput;
-    [SerializeField] Rigidbody2D rb;
+    Rigidbody2D rb;
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
-    [SerializeField] GroundDirection GD;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    GroundDirection groundDirectionScript;
+    
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        groundDirectionScript = GetComponentInChildren<GroundDirection>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
-        if (Input.GetKeyDown(KeyCode.Space) && GD.IsGrounded())
+
+        if (Input.GetKeyDown(KeyCode.Space) && groundDirectionScript.IsGrounded())
         {
             Jump();
         }
+
         Move();
     }
     private void Move()
     {
+        Vector2 speedForce = horizontalInput * transform.right * speed;
+
+        rb.AddForce(speedForce, ForceMode2D.Force);
+
+        /*
         switch (horizontalInput)
         {
             case -1:
@@ -35,23 +42,26 @@ public class Movement : MonoBehaviour
                 break;
 
         }
-        Clamp();
+        */
+        ClampSpeed();
         
     }
-    private void Clamp()
+    private void ClampSpeed()
     {
-        // Get the current velocity from the Rigidbody2D.
-        Vector2 currentVelocity = rb.linearVelocity;
+        // Convert current world velocity to local space (relative to player rotation)
+        Vector2 worldVelocity = rb.linearVelocity;
+        Vector2 localVelocity = transform.InverseTransformDirection(worldVelocity);
 
-        // Check if the magnitude (total speed) of the velocity exceeds the max speed.
-        if (currentVelocity.magnitude > speed)
+        // Clamp only the local X (horizontal) speed
+        if (Mathf.Abs(localVelocity.x) > speed)
         {
-            // Normalize the vector to get its direction, then multiply by maxSpeed.
-            // This scales the speed down to the max limit while preserving the direction.
-            rb.linearVelocity = currentVelocity.normalized * speed;
+            localVelocity.x = Mathf.Sign(localVelocity.x) * speed;
+
+            // Convert the clamped velocity back to world space and apply it
+            rb.linearVelocity = transform.TransformDirection(localVelocity);
         }
     }
-    
+
     private void Jump()
     {
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);

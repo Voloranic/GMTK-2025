@@ -19,4 +19,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   sprite: {fileID: 3063841963128474276, guid: 43037cb56b6f20040ab13acab2766140, type: 3}
+  spriteSize: {x: 0.2, y: 0.2}
   useCooldown: 1

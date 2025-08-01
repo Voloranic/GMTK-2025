@@ -6,8 +6,14 @@ public class Item0 : MonoBehaviour
 
     private SpriteRenderer sprite;
 
+    private Camera mainCamera;
+
+    private Vector2 mouseWorldPos;
+
     public void Setup(BlueprintSO so)
     {
+        mainCamera = Camera.main;
+
         sprite = GetComponentInChildren<SpriteRenderer>();
         sprite.sprite = so.GetSprite();
         sprite.transform.localScale = so.GetSpriteSize();
@@ -19,9 +25,26 @@ public class Item0 : MonoBehaviour
 
     private void Update()
     {
+        mouseWorldPos = MouseToPlayerPosition.Instance.GetMouseWorldPosition();
+        Debug.DrawLine(transform.position, mouseWorldPos, Color.green);
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Debug.Log("Use Range " + blueprintSO.GetUseDistance() + " On layers " + blueprintSO.GetUsableLayers() + " With cooldown of " + blueprintSO.GetUseCooldown());
+            Use();
+        }
+    }
+
+    private void Use()
+    {
+        //Do Animation
+
+        RaycastHit2D useRay = MouseToPlayerPosition.Instance.ShootRayToMouse(mouseWorldPos, blueprintSO.GetUseDistance(), blueprintSO.GetUsableLayers());
+
+        if (useRay)
+        {
+            GameObject hittedObject = useRay.collider.transform.root.gameObject;
+            Destroy(hittedObject);
         }
     }
 }
