@@ -17,6 +17,8 @@ public class BlueprintSO : ScriptableObject
 
     [SerializeField] private GameObject customPrefab;
 
+    [SerializeField] private AudioVariable[] useAudios = new AudioVariable[1];
+
     public int GetId()
     {
         return id;
@@ -55,5 +57,15 @@ public class BlueprintSO : ScriptableObject
     public GameObject GetCustomPrefab()
     {
         return customPrefab;
+    }
+    
+    public AudioVariable[] GetUseAudios()
+    {
+        return useAudios;
+    }
+    public AudioVariable GetRandomUseAudio()
+    {
+        int random = Random.Range(0, useAudios.Length);
+        return useAudios[random];
     }
 }

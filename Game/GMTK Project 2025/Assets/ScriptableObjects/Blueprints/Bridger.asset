@@ -22,3 +22,6 @@ MonoBehaviour:
   spriteSize: {x: 1, y: 0.05}
   useCooldown: 1
   customPrefab: {fileID: 492311075251546022, guid: ae98aca9bf7605741bd3badcec9538ea, type: 3}
+  useAudios:
+  - clip: {fileID: 8300000, guid: 3a3109f2fd2d014458243dd48a568761, type: 3}
+    volume: 0.7

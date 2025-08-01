@@ -7,6 +7,8 @@ public class PlayerPickup : MonoBehaviour
 
     private List<Transform> blueprintTransformsInPickupDistance = new List<Transform>();
 
+    [SerializeField] private AudioVariable pickupAudio;
+
     public void AddBlueprintInPickupDistance(Blueprint blueprint)
     {
         blueprintsInPickupDistance.Add(blueprint);
@@ -31,6 +33,8 @@ public class PlayerPickup : MonoBehaviour
             int closestBlueprintIndex = GetClosestTransformIndex(blueprintTransformsInPickupDistance);
             Blueprint closestBlueprint = blueprintsInPickupDistance[closestBlueprintIndex];
             closestBlueprint.Pickup();
+
+            AudioManager.Instance.PlayAudio(pickupAudio);
         }
     }
 

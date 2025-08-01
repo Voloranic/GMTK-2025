@@ -29,12 +29,14 @@ public class Item3 : MonoBehaviour
 
     private void Update()
     {
-        if (playerRb.linearVelocityY < 0)
+        if (playerRb.linearVelocityY < 0 && !groundDirection.IsGrounded())
         {
             if (!isFeathering)
             {
                 isFeathering = true;
                 groundDirection.ChangeGravityScale(featheredGravityScale);
+
+                AudioManager.Instance.PlayAudio(blueprintSO.GetRandomUseAudio());
             }
         }
         else

@@ -35,6 +35,8 @@ public class Item1 : MonoBehaviour
     {
         //Do Animation
 
+        AudioManager.Instance.PlayAudio(blueprintSO.GetRandomUseAudio());
+
         RaycastHit2D useRay = MouseToPlayerPosition.Instance.ShootRayToMouse(transform.root.position, mouseWorldPos, blueprintSO.GetUseDistance(), blueprintSO.GetUsableLayers());
 
         if (useRay)

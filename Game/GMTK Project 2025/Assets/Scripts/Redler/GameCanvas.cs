@@ -14,14 +14,9 @@ public class GameCanvas : MonoBehaviour
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button mainMenuButton;
 
-    [SerializeField] private AudioClip pauseClip;
-    [SerializeField] private float pauseAudioVolume = 1f;
-
-    [SerializeField] private AudioClip resumeClip;
-    [SerializeField] private float resumeAudioVolume = 1f;
-
-    [SerializeField] private AudioClip mainMenuClip;
-    [SerializeField] private float mainMenuAudioVolume = 1f;
+    [SerializeField] private AudioVariable pauseAudio;
+    [SerializeField] private AudioVariable resumeAudio;
+    [SerializeField] private AudioVariable mainMenuAudio;
 
     private void Awake()
     {
@@ -38,7 +33,7 @@ public class GameCanvas : MonoBehaviour
 
     private void GoToMainMenu()
     {
-        AudioManager.Instance.PlayAudio(mainMenuClip, mainMenuAudioVolume);
+        AudioManager.Instance.PlayAudio(mainMenuAudio);
 
         SceneManager.LoadScene(0);
     }
@@ -59,11 +54,11 @@ public class GameCanvas : MonoBehaviour
 
         if (isPaused)
         {
-            AudioManager.Instance.PlayAudio(pauseClip, pauseAudioVolume);
+            AudioManager.Instance.PlayAudio(pauseAudio);
         }
         else
         {
-            AudioManager.Instance.PlayAudio(resumeClip, resumeAudioVolume);
+            AudioManager.Instance.PlayAudio(resumeAudio);
         }
     }
 

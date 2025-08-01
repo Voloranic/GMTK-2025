@@ -3086,6 +3086,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 273de912275295b4183b88aaecdf6d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupAudio:
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
 --- !u!1 &787203157
 GameObject:
   m_ObjectHideFlags: 0
@@ -3836,6 +3841,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 273de912275295b4183b88aaecdf6d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupAudio:
+    clip: {fileID: 8300000, guid: dd2eb025d86734f49bfb51053b63b357, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
 --- !u!114 &1012091826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7316,12 +7326,21 @@ MonoBehaviour:
   pausePanel: {fileID: 1466653960}
   resumeButton: {fileID: 1076141479}
   mainMenuButton: {fileID: 46205877}
-  pauseClip: {fileID: 8300000, guid: c67c9d99c5eeb0b459b1bb909252dd79, type: 3}
-  pauseAudioVolume: 0.5
-  resumeClip: {fileID: 8300000, guid: 0dd034b5447117f4a8f0d3bfff73543a, type: 3}
-  resumeAudioVolume: 0.3
-  mainMenuClip: {fileID: 8300000, guid: 3765c55ccaf83674e91558d8e9b43c63, type: 3}
-  mainMenuAudioVolume: 0.6
+  pauseAudio:
+    clip: {fileID: 8300000, guid: c67c9d99c5eeb0b459b1bb909252dd79, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+  resumeAudio:
+    clip: {fileID: 8300000, guid: 0dd034b5447117f4a8f0d3bfff73543a, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+  mainMenuAudio:
+    clip: {fileID: 8300000, guid: 3765c55ccaf83674e91558d8e9b43c63, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
 --- !u!1 &1983732514
 GameObject:
   m_ObjectHideFlags: 0
