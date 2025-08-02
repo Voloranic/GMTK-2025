@@ -104,16 +104,9 @@ public class GroundDirection : MonoBehaviour
 
             for (int i = 0; i < search.Length; i++)
             {
-                if (search[i])
+                if (search[i] && search[i].collider.gameObject.layer != LayerMask.NameToLayer("NoGravity"))
                 {
-                    if (search[i].collider.gameObject.layer == LayerMask.NameToLayer("NoGravity"))
-                    {
-                        rayDistance[i] = -search[i].distance;
-                    }
-                    else
-                    {
-                        rayDistance[i] = search[i].distance;
-                    }
+                    rayDistance[i] = search[i].distance;
                 }
                 else
                 {
@@ -151,7 +144,7 @@ public class GroundDirection : MonoBehaviour
                 targetUp = Vector2.up;
             }
             //Invert Gravity
-            else if (_smallestDistance < 0)
+            else if (search[smallestDistanceIndex].collider.gameObject.layer == LayerMask.NameToLayer("InvertGravity"))
             {
                 //apply new gravity and rotation to gravityDirection
                 gravityDirection = search[smallestDistanceIndex].normal / invertedGravityDivider;
