@@ -119,6 +119,8 @@ public class GroundDirection : MonoBehaviour
 
         // apply the final gravity direction.
         rb.AddForce(gravityScale * mass * gravityDirection, ForceMode2D.Force);
+
+        transform.root.eulerAngles = new(0f, 0f, transform.eulerAngles.z);
     }
 
     public bool IsGrounded()
