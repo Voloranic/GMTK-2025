@@ -17,7 +17,7 @@ MonoBehaviour:
   useDistance: 7
   usableLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 63
   sprite: {fileID: -4296760176796813495, guid: df3b406fe57302a4c9bef03fdb5947a5, type: 3}
   spriteSize: {x: 0.1, y: 0.05}
   useCooldown: 1
@@ -27,3 +27,4 @@ MonoBehaviour:
     volume: 0.6
     pitch: 1
     loop: 0
+  useableTag: Floorable

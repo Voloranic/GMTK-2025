@@ -19,6 +19,8 @@ public class BlueprintSO : ScriptableObject
 
     [SerializeField] private AudioVariable[] useAudios = new AudioVariable[1];
 
+    [SerializeField] private string useableTag;
+
     public int GetId()
     {
         return id;
@@ -67,5 +69,10 @@ public class BlueprintSO : ScriptableObject
     {
         int random = Random.Range(0, useAudios.Length);
         return useAudios[random];
+    }
+
+    public string GetUsableTag()
+    {
+        return useableTag;
     }
 }

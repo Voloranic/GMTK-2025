@@ -39,7 +39,7 @@ public class Item1 : MonoBehaviour
 
         RaycastHit2D useRay = MouseToPlayerPosition.Instance.ShootRayToMouse(transform.root.position, mouseWorldPos, blueprintSO.GetUseDistance(), blueprintSO.GetUsableLayers());
 
-        if (useRay)
+        if (useRay && useRay.transform.CompareTag(blueprintSO.GetUsableTag()))
         {
             int moveDirection = transform.root.GetComponent<Movement>().GetIsFacingRight() ? 1 : -1;
 

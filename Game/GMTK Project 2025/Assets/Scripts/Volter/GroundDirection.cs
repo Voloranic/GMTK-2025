@@ -18,6 +18,9 @@ public class GroundDirection : MonoBehaviour
     private Vector2 targetUp;
     [SerializeField] private float rotationSpeed = 5f;
 
+    [SerializeField] private float searchRayDistance = 25f;
+    [SerializeField] private float invertedGravityDivider = 6f;
+
     void Start()
     {
         //every object will have its own rotation so this one is useless
@@ -54,7 +57,7 @@ public class GroundDirection : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, playerDown, 0.8f, groundLayer);
         Debug.DrawRay(transform.position, playerDown * 0.8f, Color.red);
 
-        if (hit.collider != null)
+        if (hit.collider != null && hit.collider.gameObject.layer != LayerMask.NameToLayer("NoGravity"))
         {
             grounded = true;
             // Set gravity to pull the player towards the hit normal.
@@ -73,37 +76,44 @@ public class GroundDirection : MonoBehaviour
             RaycastHit2D[] search = new RaycastHit2D[8];
             float[] rayDistance = new float[8];
 
-            search[0] = Physics2D.Raycast(transform.position, transform.up, 50, groundLayer);
-            Debug.DrawRay(transform.position, transform.up * 50, Color.cyan);
+            search[0] = Physics2D.Raycast(transform.position, transform.up, searchRayDistance, groundLayer);
+            Debug.DrawRay(transform.position, transform.up * searchRayDistance, Color.cyan);
 
-            search[1] = Physics2D.Raycast(transform.position, -transform.up, 50, groundLayer);
-            Debug.DrawRay(transform.position, -transform.up * 50, Color.cyan);
+            search[1] = Physics2D.Raycast(transform.position, -transform.up, searchRayDistance, groundLayer);
+            Debug.DrawRay(transform.position, -transform.up * searchRayDistance, Color.cyan);
 
-            search[2] = Physics2D.Raycast(transform.position, transform.right, 50, groundLayer);
-            Debug.DrawRay(transform.position, transform.right * 50, Color.cyan);
+            search[2] = Physics2D.Raycast(transform.position, transform.right, searchRayDistance, groundLayer);
+            Debug.DrawRay(transform.position, transform.right * searchRayDistance, Color.cyan);
 
-            search[3] = Physics2D.Raycast(transform.position, -transform.right, 50, groundLayer);
-            Debug.DrawRay(transform.position, -transform.right * 50, Color.cyan);
+            search[3] = Physics2D.Raycast(transform.position, -transform.right, searchRayDistance, groundLayer);
+            Debug.DrawRay(transform.position, -transform.right * searchRayDistance, Color.cyan);
 
+            //Diagonal rays
+            search[4] = Physics2D.Raycast(transform.position, (transform.up + transform.right).normalized, searchRayDistance, groundLayer);
+            Debug.DrawRay(transform.position, (transform.up + transform.right).normalized * searchRayDistance, Color.cyan);
 
-            search[4] = Physics2D.Raycast(transform.position, (transform.up + transform.right).normalized, 50, groundLayer);
-            Debug.DrawRay(transform.position, (transform.up + transform.right).normalized * 50, Color.cyan);
+            search[5] = Physics2D.Raycast(transform.position, (-transform.up + transform.right).normalized, searchRayDistance, groundLayer);
+            Debug.DrawRay(transform.position, (-transform.up + transform.right).normalized * searchRayDistance, Color.cyan);
 
-            search[5] = Physics2D.Raycast(transform.position, (-transform.up + transform.right).normalized, 50, groundLayer);
-            Debug.DrawRay(transform.position, (-transform.up + transform.right).normalized * 50, Color.cyan);
+            search[6] = Physics2D.Raycast(transform.position, (transform.up - transform.right).normalized, searchRayDistance, groundLayer);
+            Debug.DrawRay(transform.position, (transform.up - transform.right).normalized * searchRayDistance, Color.cyan);
 
-            search[6] = Physics2D.Raycast(transform.position, (transform.up - transform.right).normalized, 50, groundLayer);
-            Debug.DrawRay(transform.position, (transform.up - transform.right).normalized * 50, Color.cyan);
-
-            search[7] = Physics2D.Raycast(transform.position, (-transform.up - transform.right).normalized, 50, groundLayer);
-            Debug.DrawRay(transform.position, (-transform.up - transform.right).normalized * 50, Color.cyan);
+            search[7] = Physics2D.Raycast(transform.position, (-transform.up - transform.right).normalized, searchRayDistance, groundLayer);
+            Debug.DrawRay(transform.position, (-transform.up - transform.right).normalized * searchRayDistance, Color.cyan);
 
 
             for (int i = 0; i < search.Length; i++)
             {
                 if (search[i])
                 {
-                    rayDistance[i] = search[i].distance;
+                    if (search[i].collider.gameObject.layer == LayerMask.NameToLayer("NoGravity"))
+                    {
+                        rayDistance[i] = -search[i].distance;
+                    }
+                    else
+                    {
+                        rayDistance[i] = search[i].distance;
+                    }
                 }
                 else
                 {
@@ -112,22 +122,52 @@ public class GroundDirection : MonoBehaviour
             }
 
             //find the closest one and assign it as the new ground
-            int smallest = 0;
+            int smallestDistanceIndex = 0;
             for(int i = 0; i < search.Length; i++)
             {
-                if (rayDistance[smallest] > rayDistance[i] && rayDistance[i] != 0)
+                float smallestDistance = rayDistance[smallestDistanceIndex];
+                float currentDistance = rayDistance[i];
+
+                if (currentDistance < smallestDistance && currentDistance > 0)
                 {
-                    smallest = i;
+                    smallestDistanceIndex = i;
+                }
+                else if (currentDistance < 0)
+                {
+                    if (Mathf.Abs(currentDistance) < smallestDistance)
+                    {
+                        smallestDistanceIndex = i;
+                    }
                 }
             }
 
-            print(rayDistance[0] +"," + rayDistance[1] + "," + rayDistance[2] + "," + rayDistance[3]);
-            print(smallest);
+            float _smallestDistance = rayDistance[smallestDistanceIndex];
 
-            //apply new gravity and rotation to gravityDirection
-            gravityDirection = -search[smallest].normal;
-            //transform.parent.up = search[smallest].normal;
-            targetUp = search[smallest].normal;
+            //Didnt find any ground
+            if (_smallestDistance == float.MaxValue)
+            {
+                gravityDirection = Vector2.down;
+                //transform.parent.up = search[smallest].normal;
+                targetUp = Vector2.up;
+            }
+            //Invert Gravity
+            else if (_smallestDistance < 0)
+            {
+                //apply new gravity and rotation to gravityDirection
+                gravityDirection = search[smallestDistanceIndex].normal / invertedGravityDivider;
+                //transform.parent.up = search[smallest].normal;
+                targetUp = search[smallestDistanceIndex].normal;
+            }
+            else
+            {
+                //apply new gravity and rotation to gravityDirection
+                gravityDirection = -search[smallestDistanceIndex].normal;
+                //transform.parent.up = search[smallest].normal;
+                targetUp = search[smallestDistanceIndex].normal;
+            }
+
+            print(rayDistance[0] +"," + rayDistance[1] + "," + rayDistance[2] + "," + rayDistance[3]);
+            print(smallestDistanceIndex);
         }
 
         Quaternion currentRotation = transform.parent.rotation;

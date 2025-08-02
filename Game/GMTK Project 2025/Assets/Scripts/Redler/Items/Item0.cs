@@ -39,7 +39,7 @@ public class Item0 : MonoBehaviour
 
         RaycastHit2D useRay = MouseToPlayerPosition.Instance.ShootRayToMouse(transform.root.position, mouseWorldPos, blueprintSO.GetUseDistance(), blueprintSO.GetUsableLayers());
 
-        if (useRay)
+        if (useRay && useRay.transform.CompareTag(blueprintSO.GetUsableTag()))
         {
             DestroyBreakable(useRay);
         }
@@ -47,7 +47,7 @@ public class Item0 : MonoBehaviour
 
     private void DestroyBreakable(RaycastHit2D useRay)
     {
-        GameObject hittedObject = useRay.collider.transform.root.gameObject;
+        GameObject hittedObject = useRay.collider.gameObject;
         Destroy(hittedObject);
     }
 }

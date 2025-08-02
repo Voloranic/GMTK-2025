@@ -1,4 +1,4 @@
-using UnityEngine;
+    using UnityEngine;
 
 public class Item2 : MonoBehaviour
 {
@@ -41,7 +41,7 @@ public class Item2 : MonoBehaviour
 
         RaycastHit2D useRay = MouseToPlayerPosition.Instance.ShootRayToMouse(transform.root.position, mouseWorldPos, blueprintSO.GetUseDistance(), blueprintSO.GetUsableLayers());
 
-        if (useRay)
+        if (useRay && useRay.transform.CompareTag(blueprintSO.GetUsableTag()))
         {
             PlaceFloorOnWall(useRay);
         }

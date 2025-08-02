@@ -17,7 +17,7 @@ MonoBehaviour:
   useDistance: 10
   usableLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 63
   sprite: {fileID: 8403215288983880825, guid: bd3f558c0ac762d45aad2afa03df6666, type: 3}
   spriteSize: {x: 1, y: 0.05}
   useCooldown: 1
@@ -25,3 +25,6 @@ MonoBehaviour:
   useAudios:
   - clip: {fileID: 8300000, guid: 3a3109f2fd2d014458243dd48a568761, type: 3}
     volume: 0.7
+    pitch: 1
+    loop: 0
+  useableTag: Bridgable
