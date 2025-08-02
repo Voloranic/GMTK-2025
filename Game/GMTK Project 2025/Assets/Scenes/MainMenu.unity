@@ -314,7 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playButton: {fileID: 1001469429}
   quitButton: {fileID: 1536618133}
-  playAudio: {fileID: 8300000, guid: a3dc5f192675a1a4995b2a2b99622b08, type: 3}
+  playClip: {fileID: 8300000, guid: a3dc5f192675a1a4995b2a2b99622b08, type: 3}
   playAudioVolume: 0.5
 --- !u!1 &1001469427
 GameObject:
