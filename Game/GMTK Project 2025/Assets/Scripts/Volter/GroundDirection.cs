@@ -15,6 +15,8 @@ public class GroundDirection : MonoBehaviour
 
     private bool grounded;
 
+    private Vector2 targetUp;
+    [SerializeField] private float rotationSpeed = 5f;
 
     void Start()
     {
@@ -59,7 +61,8 @@ public class GroundDirection : MonoBehaviour
             gravityDirection = -hit.normal;
 
             // rotate the player to match the ground normal.
-            transform.parent.up = hit.normal;
+            //transform.parent.up = hit.normal;
+            targetUp = hit.normal;
         }
         else
         {
@@ -67,23 +70,33 @@ public class GroundDirection : MonoBehaviour
             //if you fly and have no ground
             //shoot 4 rays to find the closest ground and get the distance of each from the ground
             
-            RaycastHit2D[] search = new RaycastHit2D[4];
-            float[] rayDistance = new float[4];
+            RaycastHit2D[] search = new RaycastHit2D[8];
+            float[] rayDistance = new float[8];
 
             search[0] = Physics2D.Raycast(transform.position, transform.up, 50, groundLayer);
             Debug.DrawRay(transform.position, transform.up * 50, Color.cyan);
 
             search[1] = Physics2D.Raycast(transform.position, -transform.up, 50, groundLayer);
             Debug.DrawRay(transform.position, -transform.up * 50, Color.cyan);
-            //rayDistance[1] = search[1].distance;
-            
+
             search[2] = Physics2D.Raycast(transform.position, transform.right, 50, groundLayer);
             Debug.DrawRay(transform.position, transform.right * 50, Color.cyan);
-            //rayDistance[2] = search[2].distance;
-            
+
             search[3] = Physics2D.Raycast(transform.position, -transform.right, 50, groundLayer);
             Debug.DrawRay(transform.position, -transform.right * 50, Color.cyan);
-            //rayDistance[3] = search[3].distance;
+
+
+            search[4] = Physics2D.Raycast(transform.position, (transform.up + transform.right).normalized, 50, groundLayer);
+            Debug.DrawRay(transform.position, (transform.up + transform.right).normalized * 50, Color.cyan);
+
+            search[5] = Physics2D.Raycast(transform.position, (-transform.up + transform.right).normalized, 50, groundLayer);
+            Debug.DrawRay(transform.position, (-transform.up + transform.right).normalized * 50, Color.cyan);
+
+            search[6] = Physics2D.Raycast(transform.position, (transform.up - transform.right).normalized, 50, groundLayer);
+            Debug.DrawRay(transform.position, (transform.up - transform.right).normalized * 50, Color.cyan);
+
+            search[7] = Physics2D.Raycast(transform.position, (-transform.up - transform.right).normalized, 50, groundLayer);
+            Debug.DrawRay(transform.position, (-transform.up - transform.right).normalized * 50, Color.cyan);
 
 
             for (int i = 0; i < search.Length; i++)
@@ -113,9 +126,13 @@ public class GroundDirection : MonoBehaviour
 
             //apply new gravity and rotation to gravityDirection
             gravityDirection = -search[smallest].normal;
-            transform.parent.up = search[smallest].normal;
-            
+            //transform.parent.up = search[smallest].normal;
+            targetUp = search[smallest].normal;
         }
+
+        Quaternion currentRotation = transform.parent.rotation;
+        Quaternion targetRotation = Quaternion.FromToRotation(transform.parent.up, targetUp) * currentRotation;
+        transform.parent.rotation = Quaternion.Lerp(currentRotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
 
         // apply the final gravity direction.
         rb.AddForce(gravityScale * mass * gravityDirection, ForceMode2D.Force);
