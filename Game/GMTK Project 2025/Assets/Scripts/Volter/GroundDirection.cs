@@ -21,6 +21,8 @@ public class GroundDirection : MonoBehaviour
     [SerializeField] private float searchRayDistance = 25f;
     [SerializeField] private float invertedGravityDivider = 6f;
 
+    private bool isGravityLocked = false;
+
     void Start()
     {
         //every object will have its own rotation so this one is useless
@@ -34,11 +36,13 @@ public class GroundDirection : MonoBehaviour
     public void SetDefaultGravityScale()
     {
         gravityScale = gravitationalConstant;
+        isGravityLocked = false;
     }
 
-    public void ChangeGravityScale(float _gravityScale)
+    public void ChangeGravityScale(float _gravityScale, bool _isGravityLocked = false)
     {
         gravityScale = _gravityScale;
+        isGravityLocked = _isGravityLocked;
     }
 
     private void FixedUpdate()
@@ -48,7 +52,22 @@ public class GroundDirection : MonoBehaviour
 
     private void ApplyGravity()
     {
-        
+        if (isGravityLocked)
+        {
+            Vector2 _gravityDirection = -transform.root.up;
+
+            Quaternion _currentRotation = transform.parent.rotation;
+            Quaternion _targetRotation = Quaternion.FromToRotation(transform.parent.up, targetUp) * _currentRotation;
+            transform.parent.rotation = Quaternion.Lerp(_currentRotation, _targetRotation, rotationSpeed * Time.fixedDeltaTime);
+
+            // apply the final gravity direction.
+            rb.AddForce(gravityScale * mass * _gravityDirection, ForceMode2D.Force);
+
+            transform.root.eulerAngles = new(0f, 0f, transform.eulerAngles.z);
+
+            return;
+        }
+
         Vector2 playerDown = -transform.root.up;
 
         Vector2 gravityDirection;
@@ -57,7 +76,8 @@ public class GroundDirection : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, playerDown, 0.8f, groundLayer);
         Debug.DrawRay(transform.position, playerDown * 0.8f, Color.red);
 
-        if (hit.collider != null && hit.collider.gameObject.layer != LayerMask.NameToLayer("NoGravity"))
+        if (hit.collider != null && hit.collider.gameObject.layer != LayerMask.NameToLayer("NoGravity")
+            && hit.collider.gameObject.layer != LayerMask.NameToLayer("InvertGravity"))
         {
             grounded = true;
             // Set gravity to pull the player towards the hit normal.

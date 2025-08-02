@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8265929934941205238}
   - component: {fileID: 4853225852908464716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Item1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 3855494137039291204}
   - component: {fileID: 2405854179029277485}
   - component: {fileID: 3812718758334596216}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
-  jumpForce: 35
+  jumpForce: 45
 --- !u!1 &1611280298844986684
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239621807985853313}
   - component: {fileID: 7874905827761974728}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leg (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4156334922555390201}
   - component: {fileID: 2601559410443018111}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Item0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1020813926058784713}
   - component: {fileID: 7717252264326756786}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8410695115788085342}
   - component: {fileID: 4780339357326094492}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hat (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3683872028968607560}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8577815004785666550}
   - component: {fileID: 1498050081881969962}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 6864577728210758619}
   - component: {fileID: 3385491668304904409}
   - component: {fileID: 8597649117023637715}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlueprintsCollection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,7 +673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3027706587275145788}
   - component: {fileID: 7534604869668094088}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -760,7 +760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1001794857040604573}
   - component: {fileID: 92755954304622566}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Item3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -806,7 +806,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1386128034949593012}
   - component: {fileID: 8339245351083858911}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -893,7 +893,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1397909972003697686}
   - component: {fileID: 6447495862915827776}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -980,7 +980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5164627520974697200}
   - component: {fileID: 546944638099830174}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1067,7 +1067,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7351981714537391062}
   - component: {fileID: 5453126191534682213}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1105,8 +1105,10 @@ MonoBehaviour:
   gravitationalConstant: 9.81
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
-  rotationSpeed: 15
+    m_Bits: 392
+  rotationSpeed: 13
+  searchRayDistance: 25
+  invertedGravityDivider: 2
 --- !u!1 &6950497607969229253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6054374568605318865}
   - component: {fileID: 8311747061075629349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1204,7 +1206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7340025574751966652}
   - component: {fileID: 3025041965486343152}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Item2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1250,7 +1252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 459194995054943758}
   - component: {fileID: 4289199098459427783}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1337,7 +1339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7380299675084415309}
   - component: {fileID: 8860942416464368069}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1423,7 +1425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3769743711356267884}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

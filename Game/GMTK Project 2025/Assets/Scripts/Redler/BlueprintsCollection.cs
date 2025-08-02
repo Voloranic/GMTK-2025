@@ -16,6 +16,11 @@ public class BlueprintsCollection : MonoBehaviour
 
     public void AddBlueprintToCollection(BlueprintSO blueprint)
     {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+
         blueprintsCollection.Add(blueprint);
 
         switch (blueprint.GetId())

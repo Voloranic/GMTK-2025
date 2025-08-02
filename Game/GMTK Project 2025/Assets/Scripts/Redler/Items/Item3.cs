@@ -11,6 +11,8 @@ public class Item3 : MonoBehaviour
 
     private bool isFeathering;
 
+    private bool canFeather = true;
+
     [SerializeField] private float featheredGravityScale = 5f;
 
     public void Setup(BlueprintSO so)
@@ -31,12 +33,14 @@ public class Item3 : MonoBehaviour
     {
         if (playerMovement.GetLocalVelocity().y < 0 && !groundDirection.IsGrounded())
         {
-            if (!isFeathering)
+            if (!isFeathering && canFeather)
             {
                 isFeathering = true;
-                groundDirection.ChangeGravityScale(featheredGravityScale);
+                groundDirection.ChangeGravityScale(featheredGravityScale, true);
 
                 AudioManager.Instance.PlayAudio(blueprintSO.GetRandomUseAudio());
+
+                Invoke(nameof(TurnOff), blueprintSO.GetUseCooldown());
             }
         }
         else
@@ -46,6 +50,31 @@ public class Item3 : MonoBehaviour
                 isFeathering = false;
                 groundDirection.SetDefaultGravityScale();
             }
+
+            if (!canFeather && groundDirection.IsGrounded())
+            {
+                canFeather = true;
+            }
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (isFeathering)
+        {
+            canFeather = true;
+            isFeathering = false;
+            groundDirection.SetDefaultGravityScale();
+        }
+    }
+
+    private void TurnOff()
+    {
+        if (isFeathering)
+        {
+            isFeathering = false;
+            canFeather = false;
+            groundDirection.SetDefaultGravityScale();
         }
     }
 }
