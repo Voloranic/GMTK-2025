@@ -70,5 +70,11 @@ public class Movement : MonoBehaviour
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
 
+    public Vector2 GetLocalVelocity()
+    {
+        Vector2 localVelocity = transform.InverseTransformDirection(rb.linearVelocity);
+        return localVelocity;
+    }
+
 }
 

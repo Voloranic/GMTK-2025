@@ -72,19 +72,31 @@ public class GroundDirection : MonoBehaviour
 
             search[0] = Physics2D.Raycast(transform.position, transform.up, 50, groundLayer);
             Debug.DrawRay(transform.position, transform.up * 50, Color.cyan);
-            rayDistance[0] = search[0].distance;
 
             search[1] = Physics2D.Raycast(transform.position, -transform.up, 50, groundLayer);
             Debug.DrawRay(transform.position, -transform.up * 50, Color.cyan);
-            rayDistance[1] = search[1].distance;
+            //rayDistance[1] = search[1].distance;
             
             search[2] = Physics2D.Raycast(transform.position, transform.right, 50, groundLayer);
             Debug.DrawRay(transform.position, transform.right * 50, Color.cyan);
-            rayDistance[2] = search[2].distance;
+            //rayDistance[2] = search[2].distance;
             
             search[3] = Physics2D.Raycast(transform.position, -transform.right, 50, groundLayer);
             Debug.DrawRay(transform.position, -transform.right * 50, Color.cyan);
-            rayDistance[3] = search[3].distance;
+            //rayDistance[3] = search[3].distance;
+
+
+            for (int i = 0; i < search.Length; i++)
+            {
+                if (search[i])
+                {
+                    rayDistance[i] = search[i].distance;
+                }
+                else
+                {
+                    rayDistance[i] = float.MaxValue;
+                }
+            }
 
             //find the closest one and assign it as the new ground
             int smallest = 0;
@@ -95,6 +107,7 @@ public class GroundDirection : MonoBehaviour
                     smallest = i;
                 }
             }
+
             print(rayDistance[0] +"," + rayDistance[1] + "," + rayDistance[2] + "," + rayDistance[3]);
             print(smallest);
 

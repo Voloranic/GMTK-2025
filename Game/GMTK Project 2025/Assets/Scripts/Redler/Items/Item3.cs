@@ -7,7 +7,7 @@ public class Item3 : MonoBehaviour
     private SpriteRenderer sprite;
 
     private GroundDirection groundDirection;
-    private Rigidbody2D playerRb;
+    private Movement playerMovement;
 
     private bool isFeathering;
 
@@ -20,7 +20,7 @@ public class Item3 : MonoBehaviour
         sprite.transform.localScale = so.GetSpriteSize();
 
         groundDirection = transform.root.GetComponentInChildren<GroundDirection>();
-        playerRb = transform.root.GetComponent<Rigidbody2D>();
+        playerMovement = transform.root.GetComponent<Movement>();
 
         blueprintSO = so;
 
@@ -29,7 +29,7 @@ public class Item3 : MonoBehaviour
 
     private void Update()
     {
-        if (playerRb.linearVelocityY < 0 && !groundDirection.IsGrounded())
+        if (playerMovement.GetLocalVelocity().y < 0 && !groundDirection.IsGrounded())
         {
             if (!isFeathering)
             {
