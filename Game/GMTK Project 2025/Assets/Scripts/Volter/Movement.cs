@@ -14,6 +14,8 @@ public class Movement : MonoBehaviour
     private bool move;
     private bool jump;
 
+    [SerializeField] private AudioVariable jumpAudio;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -67,6 +69,7 @@ public class Movement : MonoBehaviour
    
     private void Jump()
     {
+        AudioManager.Instance.PlayAudio(jumpAudio);
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
 
