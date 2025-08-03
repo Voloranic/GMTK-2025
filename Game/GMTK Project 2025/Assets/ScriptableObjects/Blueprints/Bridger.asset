@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3963fa8d9e28a1c479a840ce8bfc7d31, type: 3}
   m_Name: Bridger
   m_EditorClassIdentifier: 
-  id: 3
+  id: 2
   _name: Bridger
   useDistance: 10
   usableLayers:

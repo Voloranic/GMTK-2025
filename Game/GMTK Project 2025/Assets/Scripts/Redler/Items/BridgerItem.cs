@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Item1 : MonoBehaviour
+public class BridgerItem : MonoBehaviour
 {
     private BlueprintSO blueprintSO;
 

@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class GameCanvas : MonoBehaviour
 {
-    //For later use
-
     public static GameCanvas Instance;
 
     private bool isPaused;
@@ -22,6 +20,16 @@ public class GameCanvas : MonoBehaviour
     [SerializeField] private RectTransform inventoryTransform;
     private int itemsCount = 0;
     [SerializeField] private float itemUIWidth = 100f;
+
+    [SerializeField] private Button warningButton;
+    [SerializeField] private AudioVariable warningAudio;
+
+    [SerializeField] private Button backButton;
+    [SerializeField] private AudioVariable backAudio;
+
+    [SerializeField] private GameObject warningPanel;
+    private bool isWarningOpen;
+
     private void Awake()
     {
         Instance = this;
@@ -29,10 +37,13 @@ public class GameCanvas : MonoBehaviour
 
     private void Start()
     {
+        warningPanel.SetActive(false);
         pausePanel.SetActive(false);
 
         resumeButton.onClick.AddListener(Pause);
         mainMenuButton.onClick.AddListener(GoToMainMenu);
+        warningButton.onClick.AddListener(Warning);
+        backButton.onClick.AddListener(Warning);
 
         inventoryTransform.sizeDelta = new Vector2((itemUIWidth + 20) * itemsCount, itemUIWidth + 20);
     }
@@ -54,6 +65,15 @@ public class GameCanvas : MonoBehaviour
 
     private void Pause()
     {
+        if (isWarningOpen)
+        {
+            isWarningOpen = false;
+            warningPanel.SetActive(false);
+            AudioManager.Instance.PlayAudio(backAudio);
+
+            return;
+        }
+
         isPaused = !isPaused;
 
         pausePanel.SetActive(isPaused);
@@ -93,6 +113,15 @@ public class GameCanvas : MonoBehaviour
                 childImage.transform.localScale = Vector3.one * 0.8f;
             }
         }
+    }
+
+    public void Warning()
+    {
+        isWarningOpen = !isWarningOpen;
+
+        warningPanel.SetActive(isWarningOpen);
+
+        AudioManager.Instance.PlayAudio(isWarningOpen ? warningAudio : backAudio);
     }
 
 }

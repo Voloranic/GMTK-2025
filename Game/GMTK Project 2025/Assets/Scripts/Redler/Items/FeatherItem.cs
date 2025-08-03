@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Item3 : MonoBehaviour
+public class FeatherItem : MonoBehaviour
 {
     private BlueprintSO blueprintSO;
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Item0 : MonoBehaviour
+public class BreakerItem : MonoBehaviour
 {
     private BlueprintSO blueprintSO;
 
