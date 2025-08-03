@@ -49,16 +49,16 @@ public class ZoomOutTrigger : MonoBehaviour
         originalSize = lens.OrthographicSize;
 
         // Zoom out
-        yield return StartCoroutine(SmoothZoom(originalSize, zoomedOutSize, zoomOutSpeed));
+        yield return StartCoroutine(SmoothZoom(zoomedOutSize, zoomOutSpeed));
 
         // Wait
         yield return new WaitForSeconds(zoomedOutDuration);
 
         // Zoom back in
-        yield return StartCoroutine(SmoothZoom(zoomedOutSize, originalSize, zoomInSpeed));
+        yield return StartCoroutine(SmoothZoom(originalSize, zoomInSpeed));
     }
 
-    private IEnumerator SmoothZoom(float from, float to, float speed)
+    private IEnumerator SmoothZoom(float to, float speed)
     {
         float t = 0f;
         float currentSize = cineCam.Lens.OrthographicSize;

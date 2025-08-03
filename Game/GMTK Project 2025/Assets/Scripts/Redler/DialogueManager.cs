@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     [System.Obsolete]
-    public void StartDialogue(DialogueSO dialogue, GameObject npc)
+    public void StartDialogue(DialogueSO dialogue)
     {
         Time.timeScale = 0.1f;
         //FindObjectOfType<Movement>().gameObject.GetComponentInChildren<Animator>().speed *= 10;
