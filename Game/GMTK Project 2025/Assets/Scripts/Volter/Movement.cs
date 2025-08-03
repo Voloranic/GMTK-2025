@@ -11,8 +11,6 @@ public class Movement : MonoBehaviour
     Transform spriteTransform;
 
     private bool isFacingRight = true;
-    private bool move;
-    private bool jump;
 
     [SerializeField] private AudioVariable jumpAudio;
 

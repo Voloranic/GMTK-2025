@@ -1,4 +1,5 @@
-    using UnityEngine;
+using System;
+using UnityEngine;
 
 public class Item2 : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Item2 : MonoBehaviour
     private Vector2 mouseWorldPos;
 
     [SerializeField] private float wallAngleThreshold = 70f;
+
+    private bool canUse = true;
 
     public void Setup(BlueprintSO so)
     {
@@ -23,6 +26,8 @@ public class Item2 : MonoBehaviour
 
     private void Update()
     {
+        if (!canUse) return;
+
         mouseWorldPos = MouseToPlayerPosition.Instance.GetMouseWorldPosition();
         Debug.DrawLine(transform.position, mouseWorldPos, Color.green);
 
@@ -30,7 +35,14 @@ public class Item2 : MonoBehaviour
         {
             Debug.Log("Use Range " + blueprintSO.GetUseDistance() + " On layers " + blueprintSO.GetUsableLayers() + " With cooldown of " + blueprintSO.GetUseCooldown());
             Use();
+            canUse = false;
+            Invoke(nameof(CanUse), blueprintSO.GetUseCooldown());
         }
+    }
+
+    private void CanUse()
+    {
+        canUse = true;
     }
 
     private void Use()

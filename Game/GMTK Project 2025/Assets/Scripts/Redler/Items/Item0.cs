@@ -8,6 +8,8 @@ public class Item0 : MonoBehaviour
 
     private Vector2 mouseWorldPos;
 
+    private bool canUse = true;
+
     public void Setup(BlueprintSO so)
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -21,6 +23,9 @@ public class Item0 : MonoBehaviour
 
     private void Update()
     {
+        if (!canUse)
+            return; 
+
         mouseWorldPos = MouseToPlayerPosition.Instance.GetMouseWorldPosition();
         Debug.DrawLine(transform.position, mouseWorldPos, Color.green);
 
@@ -28,6 +33,8 @@ public class Item0 : MonoBehaviour
         {
             Debug.Log("Use Range " + blueprintSO.GetUseDistance() + " On layers " + blueprintSO.GetUsableLayers() + " With cooldown of " + blueprintSO.GetUseCooldown());
             Use();
+            canUse = false;
+            Invoke(nameof(CanUse), blueprintSO.GetUseCooldown());
         }
     }
 
@@ -49,5 +56,10 @@ public class Item0 : MonoBehaviour
     {
         GameObject hittedObject = useRay.collider.gameObject;
         Destroy(hittedObject);
+    }
+
+    private void CanUse()
+    {
+        canUse = true;
     }
 }

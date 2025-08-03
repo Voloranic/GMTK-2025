@@ -161,6 +161,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2.5
   jumpForce: 45
+  jumpAudio:
+    clip: {fileID: 8300000, guid: 1b8c998f96c45cf4ba8059dbcd4896f7, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
 --- !u!1 &1611280298844986684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,6 +1114,11 @@ MonoBehaviour:
   rotationSpeed: 13
   searchRayDistance: 25
   invertedGravityDivider: 2
+  landAudio:
+    clip: {fileID: 8300000, guid: b09918f18d171a84487722224994bc0d, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
 --- !u!1 &6950497607969229253
 GameObject:
   m_ObjectHideFlags: 0

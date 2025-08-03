@@ -51,19 +51,4 @@ public class MovingPlatform : MonoBehaviour
             UpdateVelocity();
         }
     }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            if (moveAxis == MoveAxis.X)
-            {
-                PlayerRB.linearVelocityX += rb.linearVelocityX;
-            }
-            else
-            {
-                PlayerRB.linearVelocityY += rb.linearVelocityY;
-
-            }
-        }
-    }
 }
