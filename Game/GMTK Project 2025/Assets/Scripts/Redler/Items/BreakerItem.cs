@@ -10,8 +10,11 @@ public class BreakerItem : MonoBehaviour
 
     private bool canUse = true;
 
+    private Animator animator;
+
     public void Setup(BlueprintSO so)
     {
+        animator = GetComponent<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         sprite.sprite = so.GetSprite();
         sprite.transform.localScale = so.GetSpriteSize();
@@ -41,6 +44,7 @@ public class BreakerItem : MonoBehaviour
     private void Use()
     {
         //Do Animation
+        animator.SetTrigger("Use");
 
         AudioManager.Instance.PlayAudio(blueprintSO.GetRandomUseAudio());
 

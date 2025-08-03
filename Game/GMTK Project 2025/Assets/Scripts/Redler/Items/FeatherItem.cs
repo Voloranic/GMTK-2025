@@ -15,8 +15,11 @@ public class FeatherItem : MonoBehaviour
 
     [SerializeField] private float featheredGravityScale = 5f;
 
+    private Animator animator;
+
     public void Setup(BlueprintSO so)
     {
+        animator = GetComponent<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         sprite.sprite = so.GetSprite();
         sprite.transform.localScale = so.GetSpriteSize();
@@ -35,6 +38,7 @@ public class FeatherItem : MonoBehaviour
         {
             if (!isFeathering && canFeather)
             {
+                animator.SetBool("isUsing", true);
                 isFeathering = true;
                 groundDirection.ChangeGravityScale(featheredGravityScale, true);
 
@@ -47,6 +51,7 @@ public class FeatherItem : MonoBehaviour
         {
             if (isFeathering)
             {
+                animator.SetBool("isUsing", false);
                 isFeathering = false;
                 groundDirection.SetDefaultGravityScale();
             }
