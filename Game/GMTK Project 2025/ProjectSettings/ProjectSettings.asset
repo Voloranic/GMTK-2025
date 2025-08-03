@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: Tamutu Studios
   productName: GraviLoop
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: f6906bb98402b4841b538621abb9aafb, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 1}
   m_ShowUnitySplashScreen: 1
