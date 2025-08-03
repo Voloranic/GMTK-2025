@@ -133,8 +133,8 @@ TextureImporter:
         y: 895
         width: 2862
         height: 2927
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5001043, y: 0.0019397169}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 487c3df4ac806a145a587e7a61f92a2b
     internalID: 0
     vertices: []
     indices: 
@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      neon sing white_0: 625188809220878107
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
