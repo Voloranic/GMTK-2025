@@ -2542,6 +2542,11 @@ SpriteShapeRenderer:
     m_Center: {x: 2.5999181, y: 1.7899563, z: 0}
     m_Extent: {x: 2.9443047, y: 5.083201, z: 0}
   m_SpriteSortPoint: 0
+--- !u!50 &447953574 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3855494137039291204, guid: f469c651e1c84bf449d5aaf71a17c6a2, type: 3}
+  m_PrefabInstance: {fileID: 402102069}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &476200197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2918,6 +2923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 450471d6da7c6b04ca2309cf419db34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerRB: {fileID: 447953574}
   moveSpeed: 7
   moveAxis: 0
 --- !u!68 &554479991
@@ -3204,7 +3210,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3473,6 +3479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 450471d6da7c6b04ca2309cf419db34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerRB: {fileID: 447953574}
   moveSpeed: 15
   moveAxis: 0
 --- !u!68 &641703348
@@ -3759,7 +3766,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &678644180
 GameObject:
   m_ObjectHideFlags: 0
@@ -5963,6 +5970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 450471d6da7c6b04ca2309cf419db34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerRB: {fileID: 447953574}
   moveSpeed: 5
   moveAxis: 0
 --- !u!68 &1095730062
@@ -6249,7 +6257,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1101346124
 GameObject:
   m_ObjectHideFlags: 0
@@ -8310,6 +8318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 450471d6da7c6b04ca2309cf419db34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerRB: {fileID: 447953574}
   moveSpeed: 10
   moveAxis: 0
 --- !u!68 &1637045011
@@ -8596,7 +8605,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1655889023
 GameObject:
   m_ObjectHideFlags: 0
