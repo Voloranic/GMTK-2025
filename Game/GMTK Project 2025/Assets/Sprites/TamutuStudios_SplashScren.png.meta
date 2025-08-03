@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: 2a5141fb4f1f46f45ab8c3b351851b2e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3542372187048070932
+    second: TamutuStudios_SplashScren_0
+  - first:
+      213: 154491478692187258
+    second: TamutuStudios_SplashScren_1
+  - first:
+      213: -4208437881524763681
+    second: TamutuStudios_SplashScren_2
+  - first:
+      213: 9041130353770683773
+    second: TamutuStudios_SplashScren_3
+  - first:
+      213: -3221239327747454778
+    second: TamutuStudios_SplashScren_4
+  - first:
+      213: 6164641953058828593
+    second: TamutuStudios_SplashScren_5
+  - first:
+      213: -4572483816313276444
+    second: TamutuStudios_SplashScren_6
+  - first:
+      213: -6649072140201222336
+    second: TamutuStudios_SplashScren_7
+  - first:
+      213: 35910061786789040
+    second: TamutuStudios_SplashScren_8
+  - first:
+      213: -1420908403235044060
+    second: TamutuStudios_SplashScren_9
+  - first:
+      213: 2393021872426512392
+    second: TamutuStudios_SplashScren_10
+  - first:
+      213: -5962729148518071
+    second: TamutuStudios_SplashScren_11
+  - first:
+      213: 1090378395551698290
+    second: TamutuStudios_SplashScren_12
+  - first:
+      213: 11364955278825628
+    second: TamutuStudios_SplashScren_13
+  - first:
+      213: -5810791128007369637
+    second: TamutuStudios_SplashScren_14
+  - first:
+      213: -7362435941508794576
+    second: TamutuStudios_SplashScren_15
+  - first:
+      213: 8303880977559658044
+    second: TamutuStudios_SplashScren_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_0
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 194
+        width: 282
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41f493f5cb8092130800000000000000
+      internalID: 3542372187048070932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_1
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 119
+        width: 61
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7cc54c6e2dd42200800000000000000
+      internalID: 154491478692187258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_2
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 119
+        width: 64
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd34b644b00a895c0800000000000000
+      internalID: -4208437881524763681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_3
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 118
+        width: 37
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7dd080a72c887d70800000000000000
+      internalID: 9041130353770683773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_4
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 118
+        width: 62
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c84815f5ebdb43d0800000000000000
+      internalID: -3221239327747454778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_5
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 118
+        width: 37
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 131ba83d1353d8550800000000000000
+      internalID: 6164641953058828593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_6
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 118
+        width: 50
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e7bc63f1364b80c0800000000000000
+      internalID: -4572483816313276444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_7
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 162
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04f1c55ed10c9b3a0800000000000000
+      internalID: -6649072140201222336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_8
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 100
+        width: 52
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b4f9acc2049f7000800000000000000
+      internalID: 35910061786789040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_9
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 118
+        width: 52
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 425cec6e55be74ce0800000000000000
+      internalID: -1420908403235044060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_10
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 119
+        width: 74
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 800f8b5d6b8b53120800000000000000
+      internalID: 2393021872426512392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_11
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 118
+        width: 47
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 941f53fede0daeff0800000000000000
+      internalID: -5962729148518071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_12
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 118
+        width: 47
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27d8e99af5dc12f00800000000000000
+      internalID: 1090378395551698290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_13
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 118
+        width: 46
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c98584add50682000800000000000000
+      internalID: 11364955278825628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_14
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 119
+        width: 20
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5c1127814ceb5fa0800000000000000
+      internalID: -5810791128007369637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_15
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 118
+        width: 51
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 037bcc0e48f53d990800000000000000
+      internalID: -7362435941508794576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TamutuStudios_SplashScren_16
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 118
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3e1194d0cf4d3370800000000000000
+      internalID: 8303880977559658044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TamutuStudios_SplashScren_0: 3542372187048070932
+      TamutuStudios_SplashScren_1: 154491478692187258
+      TamutuStudios_SplashScren_10: 2393021872426512392
+      TamutuStudios_SplashScren_11: -5962729148518071
+      TamutuStudios_SplashScren_12: 1090378395551698290
+      TamutuStudios_SplashScren_13: 11364955278825628
+      TamutuStudios_SplashScren_14: -5810791128007369637
+      TamutuStudios_SplashScren_15: -7362435941508794576
+      TamutuStudios_SplashScren_16: 8303880977559658044
+      TamutuStudios_SplashScren_2: -4208437881524763681
+      TamutuStudios_SplashScren_3: 9041130353770683773
+      TamutuStudios_SplashScren_4: -3221239327747454778
+      TamutuStudios_SplashScren_5: 6164641953058828593
+      TamutuStudios_SplashScren_6: -4572483816313276444
+      TamutuStudios_SplashScren_7: -6649072140201222336
+      TamutuStudios_SplashScren_8: 35910061786789040
+      TamutuStudios_SplashScren_9: -1420908403235044060
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
