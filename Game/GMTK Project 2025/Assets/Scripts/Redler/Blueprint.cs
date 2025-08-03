@@ -31,8 +31,6 @@ public class Blueprint : MonoBehaviour
             playerPickupScript.AddBlueprintInPickupDistance(this);
 
             pickupBauble.SetActive(true);
-
-            ShowPickupUI();
         }
     }
 
@@ -43,26 +41,18 @@ public class Blueprint : MonoBehaviour
             playerPickupScript.RemoveBlueprintInPickupDistance(this);
 
             pickupBauble.SetActive(false);
-
-            HidePickupUI();
         }
-    }
-
-    private void ShowPickupUI()
-    {
-        //Call a function from the game ui script
-        Debug.Log("Player in pickup distance.");
-    }
-    private void HidePickupUI()
-    {
-        //Call a function from the game ui script
-        Debug.Log("Player out of pickup distance.");
     }
 
     public void Pickup()
     {
         playerBlueprintsCollectionScript.AddBlueprintToCollection(blueprintSO);
         Destroy(gameObject);
+    }
+
+    public BlueprintSO GetBlueprintSO()
+    {
+        return blueprintSO;
     }
 
 }

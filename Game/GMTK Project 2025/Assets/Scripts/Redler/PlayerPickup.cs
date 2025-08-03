@@ -9,6 +9,8 @@ public class PlayerPickup : MonoBehaviour
 
     [SerializeField] private AudioVariable pickupAudio;
 
+    [SerializeField] private DialogueStarter[] pickupsDialogueStarters = new DialogueStarter[0];
+
     public void AddBlueprintInPickupDistance(Blueprint blueprint)
     {
         blueprintsInPickupDistance.Add(blueprint);
@@ -21,6 +23,7 @@ public class PlayerPickup : MonoBehaviour
         blueprintTransformsInPickupDistance.Remove(blueprint.transform);
     }
 
+    [System.Obsolete]
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -33,6 +36,8 @@ public class PlayerPickup : MonoBehaviour
             int closestBlueprintIndex = GetClosestTransformIndex(blueprintTransformsInPickupDistance);
             Blueprint closestBlueprint = blueprintsInPickupDistance[closestBlueprintIndex];
             closestBlueprint.Pickup();
+
+            pickupsDialogueStarters[closestBlueprint.GetBlueprintSO().GetId()].StartDialogue();
 
             AudioManager.Instance.PlayAudio(pickupAudio);
         }

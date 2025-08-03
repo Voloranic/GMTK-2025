@@ -14,7 +14,12 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] GameObject dialoguePanel;
     [SerializeField] TextMeshProUGUI dialogueText;
 
-    [SerializeField] int framesToWaitUntilStartWriting = 20;
+    private void Start()
+    {
+        inDialogue = false;
+        dialogueText.text = "";
+        dialoguePanel.SetActive(false);
+    }
 
     [System.Obsolete]
     public void StartDialogue(DialogueSO dialogue, GameObject npc)
@@ -54,11 +59,6 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueText.text = "";
 
-        for (int i = 0; i < framesToWaitUntilStartWriting; i++)
-        {
-            yield return null;
-        }
-
         isWritingASentence = true;
 
         foreach (char character in sentence.ToCharArray())
@@ -70,14 +70,14 @@ public class DialogueManager : MonoBehaviour
 
             if (character == '.' || character == '!' || character == '?')
             {
-                for (int i = 0; i < 75; i++)
+                for (int i = 0; i < 25; i++)
                 {
                     yield return null;
                 }
             }
             else
             {
-                for (int i = 0; i < 25; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     yield return null;
                 }

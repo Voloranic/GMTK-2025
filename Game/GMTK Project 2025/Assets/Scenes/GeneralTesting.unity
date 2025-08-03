@@ -2337,6 +2337,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8597649117023637715, guid: f469c651e1c84bf449d5aaf71a17c6a2, type: 3}
+      propertyPath: pickupsDialogueStarters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8717804849100299541, guid: f469c651e1c84bf449d5aaf71a17c6a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.4
@@ -4903,7 +4907,6 @@ MonoBehaviour:
   inDialogue: 0
   dialoguePanel: {fileID: 0}
   dialogueText: {fileID: 0}
-  framesToWaitUntilStartWriting: 20
 --- !u!1 &837240121
 GameObject:
   m_ObjectHideFlags: 0
@@ -9423,7 +9426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7199190921470245711, guid: 4a2aa1344c51ccf40a1a7e851098ebe9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7589643687602516311, guid: 4a2aa1344c51ccf40a1a7e851098ebe9, type: 3}
       propertyPath: m_text

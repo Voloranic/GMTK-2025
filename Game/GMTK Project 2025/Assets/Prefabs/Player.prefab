@@ -163,7 +163,7 @@ MonoBehaviour:
   jumpForce: 45
   jumpAudio:
     clip: {fileID: 8300000, guid: 1b8c998f96c45cf4ba8059dbcd4896f7, type: 3}
-    volume: 0.4
+    volume: 0.2
     pitch: 1
     loop: 0
 --- !u!1 &1611280298844986684
@@ -665,7 +665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupAudio:
     clip: {fileID: 8300000, guid: dd2eb025d86734f49bfb51053b63b357, type: 3}
-    volume: 0.4
+    volume: 0.3
     pitch: 1
     loop: 0
 --- !u!1 &3290142221099326420
