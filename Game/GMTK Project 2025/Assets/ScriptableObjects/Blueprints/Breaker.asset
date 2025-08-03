@@ -23,8 +23,8 @@ MonoBehaviour:
   useCooldown: 1
   customPrefab: {fileID: 0}
   useAudios:
-  - clip: {fileID: 8300000, guid: 2b1a3982efb6e3d429af6ae8bf0a0651, type: 3}
-    volume: 0.2
+  - clip: {fileID: 8300000, guid: d3cf305a92dec4b4a8d00d72c2e2ab44, type: 3}
+    volume: 0.7
     pitch: 1
     loop: 0
   useableTag: Breakable
