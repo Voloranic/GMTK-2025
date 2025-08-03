@@ -439,18 +439,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 318435025}
     m_Modifications:
-    - target: {fileID: 2371511097156546480, guid: 83b20b566b280394182b7b7dda92b351, type: 3}
-      propertyPath: m_Color.b
-      value: 0.4575472
-      objectReference: {fileID: 0}
-    - target: {fileID: 2371511097156546480, guid: 83b20b566b280394182b7b7dda92b351, type: 3}
-      propertyPath: m_Color.g
-      value: 0.89667565
-      objectReference: {fileID: 0}
-    - target: {fileID: 2371511097156546480, guid: 83b20b566b280394182b7b7dda92b351, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8404823615094321539, guid: 83b20b566b280394182b7b7dda92b351, type: 3}
       propertyPath: m_Name
       value: RightSign (6)
