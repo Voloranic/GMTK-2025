@@ -22,6 +22,7 @@ public class BlueprintsCollection : MonoBehaviour
         }
 
         blueprintsCollection.Add(blueprint);
+        GameCanvas.Instance.AddItemToInventory(blueprint.GetId());
 
         switch (blueprint.GetId())
         {
@@ -42,6 +43,8 @@ public class BlueprintsCollection : MonoBehaviour
                 item3Child.gameObject.SetActive(true);
                 break;
         }
+
+        GameCanvas.Instance.BoldItem(blueprint.GetId());
     }
 
     private void Start()
@@ -84,6 +87,8 @@ public class BlueprintsCollection : MonoBehaviour
                         item3Child.gameObject.SetActive(true);
                         break;
                 }
+
+                GameCanvas.Instance.BoldItem(equipedBlueprintSO.GetId());
             }
         }
     }

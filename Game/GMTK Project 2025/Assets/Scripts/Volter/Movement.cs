@@ -14,6 +14,18 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private AudioVariable jumpAudio;
 
+    private bool disableMovement;
+    
+    public void DisableMovement()
+    {
+        disableMovement = true;
+    }
+    public void EnableMovement()
+    {
+        disableMovement = false;
+    }
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,6 +35,8 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        if (disableMovement) return;
+
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
         FlipSprite();
@@ -35,6 +49,8 @@ public class Movement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (disableMovement) return;
+
         Move();
     }
 
