@@ -3,10 +3,9 @@ using UnityEngine;
 
 public class BlueprintsCollection : MonoBehaviour
 {
-    [SerializeField] private Item0 item0Child;
-    [SerializeField] private Item1 item1Child;
-    [SerializeField] private Item2 item2Child;
-    [SerializeField] private Item3 item3Child;
+    [SerializeField] private BreakerItem item0Child;
+    [SerializeField] private FeatherItem item1Child;
+    [SerializeField] private BridgerItem item2Child;
 
     private List<BlueprintSO> blueprintsCollection = new List<BlueprintSO>();
 
@@ -37,10 +36,6 @@ public class BlueprintsCollection : MonoBehaviour
             case 2:
                 item2Child.Setup(blueprint);
                 item2Child.gameObject.SetActive(true);
-                break;
-            case 3:
-                item3Child.Setup(blueprint);
-                item3Child.gameObject.SetActive(true);
                 break;
         }
 
@@ -82,9 +77,6 @@ public class BlueprintsCollection : MonoBehaviour
                         break;
                     case 2:
                         item2Child.gameObject.SetActive(true);
-                        break;
-                    case 3:
-                        item3Child.gameObject.SetActive(true);
                         break;
                 }
 

@@ -18,8 +18,8 @@ MonoBehaviour:
   usableLayers:
     serializedVersion: 2
     m_Bits: 63
-  sprite: {fileID: -4296760176796813495, guid: df3b406fe57302a4c9bef03fdb5947a5, type: 3}
-  spriteSize: {x: 0.1, y: 0.05}
+  sprite: {fileID: 6862949606759903205, guid: bd218d98ae9449143a98801534ad1846, type: 3}
+  spriteSize: {x: -0.6, y: 0.6}
   useCooldown: 0.6
   customPrefab: {fileID: 492311075251546022, guid: 08832bd3fb1cef44892adddcb79e79ac, type: 3}
   useAudios:

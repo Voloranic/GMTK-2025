@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Item0 : MonoBehaviour
+public class BridgerItem : MonoBehaviour
 {
     private BlueprintSO blueprintSO;
 
@@ -23,8 +23,7 @@ public class Item0 : MonoBehaviour
 
     private void Update()
     {
-        if (!canUse)
-            return; 
+        if (!canUse) return;
 
         mouseWorldPos = MouseToPlayerPosition.Instance.GetMouseWorldPosition();
         Debug.DrawLine(transform.position, mouseWorldPos, Color.green);
@@ -38,6 +37,11 @@ public class Item0 : MonoBehaviour
         }
     }
 
+    private void CanUse()
+    {
+        canUse = true;
+    }
+
     private void Use()
     {
         //Do Animation
@@ -48,18 +52,29 @@ public class Item0 : MonoBehaviour
 
         if (useRay && useRay.transform.CompareTag(blueprintSO.GetUsableTag()))
         {
-            DestroyBreakable(useRay);
+            int moveDirection = transform.root.GetComponent<Movement>().GetIsFacingRight() ? 1 : -1;
+
+            Vector2 bridgeStartPosition = transform.root.position + (transform.root.right * moveDirection);
+
+            CreateGroundBetweenPoints(bridgeStartPosition, useRay.point, blueprintSO.GetCustomPrefab());
         }
     }
 
-    private void DestroyBreakable(RaycastHit2D useRay)
+    private void CreateGroundBetweenPoints(Vector2 pointA, Vector2 pointB, GameObject groundPrefab)
     {
-        GameObject hittedObject = useRay.collider.gameObject;
-        Destroy(hittedObject);
-    }
+        // Calculate the center position between pointA and pointB
+        Vector2 centerPos = (pointA + pointB) / 2f;
 
-    private void CanUse()
-    {
-        canUse = true;
+        // Calculate the direction and distance
+        Vector2 direction = pointB - pointA;
+        float distance = direction.magnitude;
+        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Instantiate the ground object
+        GameObject ground = Instantiate(groundPrefab, centerPos, Quaternion.identity);
+
+        // Set the scale based on the distance (assuming original ground width is 1 unit)
+        ground.transform.right = direction.normalized; // Rotate toward direction
+        ground.transform.localScale = new Vector3(distance, ground.transform.localScale.y, 1f);
     }
 }

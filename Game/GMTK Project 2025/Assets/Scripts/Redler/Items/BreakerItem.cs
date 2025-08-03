@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Item1 : MonoBehaviour
+public class BreakerItem : MonoBehaviour
 {
     private BlueprintSO blueprintSO;
 
@@ -10,8 +10,11 @@ public class Item1 : MonoBehaviour
 
     private bool canUse = true;
 
+    private Animator animator;
+
     public void Setup(BlueprintSO so)
     {
+        animator = GetComponent<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         sprite.sprite = so.GetSprite();
         sprite.transform.localScale = so.GetSpriteSize();
@@ -23,7 +26,8 @@ public class Item1 : MonoBehaviour
 
     private void Update()
     {
-        if (!canUse) return;
+        if (!canUse)
+            return; 
 
         mouseWorldPos = MouseToPlayerPosition.Instance.GetMouseWorldPosition();
         Debug.DrawLine(transform.position, mouseWorldPos, Color.green);
@@ -37,14 +41,10 @@ public class Item1 : MonoBehaviour
         }
     }
 
-    private void CanUse()
-    {
-        canUse = true;
-    }
-
     private void Use()
     {
         //Do Animation
+        animator.SetTrigger("Use");
 
         AudioManager.Instance.PlayAudio(blueprintSO.GetRandomUseAudio());
 
@@ -52,29 +52,18 @@ public class Item1 : MonoBehaviour
 
         if (useRay && useRay.transform.CompareTag(blueprintSO.GetUsableTag()))
         {
-            int moveDirection = transform.root.GetComponent<Movement>().GetIsFacingRight() ? 1 : -1;
-
-            Vector2 bridgeStartPosition = transform.root.position + (transform.root.right * moveDirection);
-
-            CreateGroundBetweenPoints(bridgeStartPosition, useRay.point, blueprintSO.GetCustomPrefab());
+            DestroyBreakable(useRay);
         }
     }
 
-    private void CreateGroundBetweenPoints(Vector2 pointA, Vector2 pointB, GameObject groundPrefab)
+    private void DestroyBreakable(RaycastHit2D useRay)
     {
-        // Calculate the center position between pointA and pointB
-        Vector2 centerPos = (pointA + pointB) / 2f;
+        GameObject hittedObject = useRay.collider.gameObject;
+        Destroy(hittedObject);
+    }
 
-        // Calculate the direction and distance
-        Vector2 direction = pointB - pointA;
-        float distance = direction.magnitude;
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Instantiate the ground object
-        GameObject ground = Instantiate(groundPrefab, centerPos, Quaternion.identity);
-
-        // Set the scale based on the distance (assuming original ground width is 1 unit)
-        ground.transform.right = direction.normalized; // Rotate toward direction
-        ground.transform.localScale = new Vector3(distance, ground.transform.localScale.y, 1f);
+    private void CanUse()
+    {
+        canUse = true;
     }
 }
