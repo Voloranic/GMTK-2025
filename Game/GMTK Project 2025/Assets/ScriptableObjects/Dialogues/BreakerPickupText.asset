@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BreakerPickupText
   m_EditorClassIdentifier: 
   sentences:
-  - You've just picked up the breaker - a whip that can destroy fragile objects from
-    a certain distance!
+  - You've just picked up the breaker - a whip that can destroy fragile (green) objects
+    from a certain distance!
   - Aim with your crosshair in the direction of the object you want to hit and click
     the left mouse button to whip the object!
