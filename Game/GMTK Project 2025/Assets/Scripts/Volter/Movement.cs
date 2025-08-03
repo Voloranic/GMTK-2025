@@ -15,7 +15,10 @@ public class Movement : MonoBehaviour
     [SerializeField] private AudioVariable jumpAudio;
 
     private bool disableMovement;
-    
+
+    private Animator animator;
+    private bool isWalking = false;
+
     public void DisableMovement()
     {
         disableMovement = true;
@@ -28,6 +31,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         groundDirectionScript = GetComponentInChildren<GroundDirection>();
         spriteTransform = GetComponentInChildren<SpriteRenderer>().transform.parent;
@@ -38,6 +42,16 @@ public class Movement : MonoBehaviour
         if (disableMovement) return;
 
         horizontalInput = Input.GetAxisRaw("Horizontal");
+
+        if (horizontalInput != 0 && !isWalking)
+        {
+            isWalking = true;
+            animator.SetBool("isWalking", true);
+        } else if (horizontalInput == 0 && isWalking)
+        {
+            isWalking = false;
+            animator.SetBool("isWalking", false);
+        }
 
         FlipSprite();
 
