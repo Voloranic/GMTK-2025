@@ -23,6 +23,8 @@ public class GroundDirection : MonoBehaviour
 
     private bool isGravityLocked = false;
 
+    [SerializeField] private AudioVariable landAudio;
+
     void Start()
     {
         //every object will have its own rotation so this one is useless
@@ -79,7 +81,11 @@ public class GroundDirection : MonoBehaviour
         if (hit.collider != null && hit.collider.gameObject.layer != LayerMask.NameToLayer("NoGravity")
             && hit.collider.gameObject.layer != LayerMask.NameToLayer("InvertGravity"))
         {
-            grounded = true;
+            if (!grounded)
+            {
+                grounded = true;
+                AudioManager.Instance.PlayAudio(landAudio);
+            }
             // Set gravity to pull the player towards the hit normal.
             gravityDirection = -hit.normal;
 
